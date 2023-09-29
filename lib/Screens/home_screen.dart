@@ -69,17 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                Container( //annoucing the winner
                   margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Text(
                     winnerAnnoucement,
                     style: TextStyle(fontSize: 34, color: annouceColor),
                   ),
                 ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                Container(
+                Container( //clearning the board to play again
                   margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: ElevatedButton.icon(
                     onPressed: () {
@@ -112,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _tapped(int index) {
-    setState(() {
+    setState(() { //placing the X or O on the screen based on where the user taps
       if (_oTurn && board[index] == '') {
         board[index] = 'O';
         filledBoxes++;
@@ -125,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  //Game winning logic 
   void _checkwinnerAnnoucement() {
     var player = '';
 
@@ -205,7 +203,6 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
   }
-
   _updateScore(String player) {
     if (player == 'O') {
       oScore++;
